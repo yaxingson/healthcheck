@@ -26,6 +26,8 @@
 ```js
 window.addEventListener('error', ev=>{
   const { tagName } = ev.target
+  const isResourceElementTag = tagName.match(/^(img|link|script)$/i) 
+
 
 })
 
@@ -56,7 +58,17 @@ window.addEventListener('error', ev=>{
   
 
 ```js
+try {
+
+} catch(e) {
+
+}
+
 window.onerror = (message, source, lineno, colno, error)=>{}
+
+new Promise((resolve, reject)=>{})
+  .then(result=>{})
+  .catch(reason=>{})
 
 window.addEventListener('unhandlerejection', ()=>{})
 window.addEventListener('rejectionhandled', ()=>{})
@@ -74,25 +86,76 @@ EventTarget.prototype.addEventListener = function(type, listener, options) {
 
 - 业务指标异常
 
-### 日志
+> PV/UV数据统计
 
-### 数据清洗和上报
+```js
+function createHistoryEvent(name) {
+  const origin = window.history[name]
+
+  return function() {
+  
+  }
+}
+
+window.history.pushState = createHistoryEvent('pushState')
+window.history.replaceState = createHistoryEvent('replaceState')
+
+
+```
+
+埋点:
+
+- 手动埋点(利用元素自定义属性)
+- 无痕埋点
+
+### 日志和上报
 
 上报方法:
 
 - `XMLHttpRequest`
 - `navigator.sendBeacon`
 - `IndexedDB`
+- 图片url请求
 - 截图
 
+### 数据存储、清洗和回流
 
-### 可视分析
+### 可视化分析
 
-### 告警
+### 预警
 
-> 阈值
+> 阈值和心跳检测
+
 
 ## 性能监控
+
+[Navigation Timing API](https://developer.mozilla.org/zh-CN/docs/Web/API/Performance_API/Navigation_timing)
+
+<img src="https://imgos.cn/2024/08/14/66bc1eb163be7.png" width="80%" alt="" />
+
+采集:
+
+- `window.performance.timing`
+- `window.performance.getEntries`
+- `window.performance.getEntriesByType`
+- `window.performance.mark`
+- `PerformanceObserver`
+
+```js
+const entries = window.performance.getEntries()
+
+const paint = window.performance.getEntriesByType('paint')
+const fp = paint.find(e=>e.name === 'first-paint').startTime
+
+```
+
+性能指标:
+
+- FP（First Paint）
+- FCP（First Contentful Paint）
+- LCP（Largest Contentful Paint）
+- FMP（First Meaning Paint）
+- DCL（DOM Content Loaded）
 
 ### 加载性能
 
