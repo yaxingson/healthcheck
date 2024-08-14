@@ -14,6 +14,7 @@
     - `script`
     - `img`
   - HTTP请求异常
+  - API异常
 
   采集:
     - `XMLHttpRequest`
@@ -70,8 +71,17 @@ new Promise((resolve, reject)=>{})
   .then(result=>{})
   .catch(reason=>{})
 
-window.addEventListener('unhandlerejection', ()=>{})
-window.addEventListener('rejectionhandled', ()=>{})
+window.addEventListener('unhandlerejection', (e)=>{
+  const { reason } = e
+
+})
+
+window.addEventListener('rejectionhandled', ()=>{
+
+}, {
+  capture:true,
+  passive:true
+})
 
 // 解决跨域脚本错误
 const originAddEventListener = EventTarget.prototype.addEventListener
@@ -106,6 +116,7 @@ window.history.replaceState = createHistoryEvent('replaceState')
 埋点:
 
 - 手动埋点(利用元素自定义属性)
+- 可视化埋点
 - 无痕埋点
 
 ### 日志和上报
@@ -119,6 +130,8 @@ window.history.replaceState = createHistoryEvent('replaceState')
 - 截图
 
 ### 数据存储、清洗和回流
+
+> 建模
 
 ### 可视化分析
 
@@ -156,6 +169,16 @@ const fp = paint.find(e=>e.name === 'first-paint').startTime
 - LCP（Largest Contentful Paint）
 - FMP（First Meaning Paint）
 - DCL（DOM Content Loaded）
+- TTI（Time To Interactive）
+- TTFB（Time To First Byte）
+
+> 白屏和卡顿
+
+```js
+document.elementFromPoint(300, 300)
+
+
+```
 
 ### 加载性能
 
