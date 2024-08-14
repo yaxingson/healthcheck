@@ -96,7 +96,7 @@ EventTarget.prototype.addEventListener = function(type, listener, options) {
 
 - 业务指标异常
 
-> PV/UV数据统计
+> PV/UV、页面停留时间数据统计
 
 ```js
 function createHistoryEvent(name) {
@@ -115,7 +115,7 @@ window.history.replaceState = createHistoryEvent('replaceState')
 
 埋点:
 
-- 手动埋点(利用元素自定义属性)
+- 手动埋点(利用元素自定义属性`elementtiming`)
 - 可视化埋点
 - 无痕埋点
 
@@ -129,6 +129,12 @@ window.history.replaceState = createHistoryEvent('replaceState')
 - 图片url请求
 - 截图
 
+跨域问题的解决方案:
+
+- 配置本地HOST文件
+- cors
+- proxy
+
 ### 数据存储、清洗和回流
 
 > 建模
@@ -139,6 +145,17 @@ window.history.replaceState = createHistoryEvent('replaceState')
 
 > 阈值和心跳检测
 
+邮件、短信报警
+
+```sh
+# 定时任务
+crontab
+
+npm i cron
+
+npm i nodemailer
+
+```
 
 ## 性能监控
 
@@ -151,6 +168,7 @@ window.history.replaceState = createHistoryEvent('replaceState')
 - `window.performance.timing`
 - `window.performance.getEntries`
 - `window.performance.getEntriesByType`
+- `window.performance.getEntriesByName`
 - `window.performance.mark`
 - `PerformanceObserver`
 
@@ -159,6 +177,12 @@ const entries = window.performance.getEntries()
 
 const paint = window.performance.getEntriesByType('paint')
 const fp = paint.find(e=>e.name === 'first-paint').startTime
+
+new PerformanceObserver((entryList, observer)=>{
+  
+  observer.disconnect()
+}).observe({})
+
 
 ```
 
@@ -171,11 +195,15 @@ const fp = paint.find(e=>e.name === 'first-paint').startTime
 - DCL（DOM Content Loaded）
 - TTI（Time To Interactive）
 - TTFB（Time To First Byte）
+- FID（First Input Delay）
 
 > 白屏和卡顿
 
 ```js
 document.elementFromPoint(300, 300)
+
+window.addEventListener('DOMContentLoaded', ev=>{})
+window.addEventListener('load', ev=>{})
 
 
 ```
