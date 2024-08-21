@@ -65,7 +65,7 @@ try {
 
 }
 
-window.onerror = (message, source, lineno, colno, error)=>{}
+window.onerror = (message, url, lineno, colno, error)=>{}
 
 new Promise((resolve, reject)=>{})
   .then(result=>{})
@@ -73,11 +73,11 @@ new Promise((resolve, reject)=>{})
 
 window.addEventListener('unhandlerejection', (e)=>{
   const { reason } = e
-
+  e.preventDefault()
 })
 
-window.addEventListener('rejectionhandled', ()=>{
-
+window.addEventListener('rejectionhandled', (e)=>{
+  e.preventDefault()
 }, {
   capture:true,
   passive:true
@@ -86,9 +86,10 @@ window.addEventListener('rejectionhandled', ()=>{
 // 解决跨域脚本错误
 const originAddEventListener = EventTarget.prototype.addEventListener
 
-EventTarget.prototype.addEventListener = function(type, listener, options) {
-  
-}
+EventTarget.prototype.addEventListener = function(type, listener, options) { }
+
+Vue.config.errorHandler = (e, vm, info)=>{}
+
 
 ```
   
@@ -113,6 +114,8 @@ window.history.replaceState = createHistoryEvent('replaceState')
 
 ```
 
+> `Base64 VLQ`编码
+
 埋点:
 
 - 手动埋点(利用元素自定义属性`elementtiming`)
@@ -125,9 +128,15 @@ window.history.replaceState = createHistoryEvent('replaceState')
 
 - `XMLHttpRequest`
 - `navigator.sendBeacon`
-- `IndexedDB`
+- `IndexedDB`缓存，异步上传
 - 图片url请求
 - 截图
+- 场景回溯
+
+```js
+window.requestIdleCallback
+
+```
 
 跨域问题的解决方案:
 
@@ -212,5 +221,10 @@ window.addEventListener('load', ev=>{})
 
 ### 渲染性能
 
+## 第三方平台
+
+<https://sentry.io/>
+
+<https://www.rrweb.io/>
 
 
