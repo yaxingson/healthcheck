@@ -13,6 +13,7 @@
     - `link`
     - `script`
     - `img`
+    - `video`
   - HTTP请求异常
   - API异常
 
@@ -46,6 +47,7 @@ window.addEventListener('error', ev=>{
     - `setInterval`
     - `Promise`
     - `requestAnimationFrame`
+  - `script`跨源错误
   - 自定义异常
 
   采集:
@@ -57,6 +59,10 @@ window.addEventListener('error', ev=>{
 
   [错误堆栈解析](https://github.com/stacktracejs/error-stack-parser)
   
+```html
+<script src="" crossorigin=""></script>
+
+```
 
 ```js
 try {
@@ -221,10 +227,14 @@ window.addEventListener('load', ev=>{})
 
 ### 渲染性能
 
+## 行为监控
+
+
 ## 第三方平台
 
 <https://sentry.io/>
 
 <https://www.rrweb.io/>
+
 
 
