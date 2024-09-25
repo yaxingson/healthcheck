@@ -130,12 +130,16 @@ window.history.replaceState = createHistoryEvent('replaceState')
 
 ### 日志和上报
 
-上报方法:
+上报策略: 实时上报、批量上报和手动上报
+
+上报方案:
 
 - `XMLHttpRequest`
+- `fetch`
 - `navigator.sendBeacon`
 - `IndexedDB`缓存，异步上传
-- 图片url请求
+- 图片src请求
+- `jsonp`
 - 截图
 - 场景回溯
 
