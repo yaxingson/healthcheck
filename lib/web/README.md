@@ -1,5 +1,13 @@
 # @healthcheck/web [![npm version](https://img.shields.io/npm/v/@healthcheck/web.svg?style=flat-square)]() [![Download](https://img.shields.io/npm/dm/@healthcheck/web)]()
 
+## Features
+
+- Monitor events such as resource requests, user behaviors, and route hops.
+- Capture and report custom interface errors, code exceptions, and resource loading errors.
+- Complete unit testing and end-to-end testing.
+- Monitors the web performance in real time and reports the performance indicators.
+- Support for native web and mainstream front-end frameworks (e.g. vue, react, etc.).
+
 ## Install
 
 ```shell
