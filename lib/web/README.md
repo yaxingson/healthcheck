@@ -1,3 +1,5 @@
+# @healthcheck/web
+
 ## Install
 
 ```shell
