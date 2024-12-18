@@ -6,4 +6,6 @@ function Healthcheck(options=defaultHealthcheckOptions) {
 
 }
 
+export function errorBoundaryReport() {}
+
 export default Healthcheck

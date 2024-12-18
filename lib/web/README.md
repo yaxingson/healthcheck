@@ -1,4 +1,4 @@
-# @healthcheck/web [![npm version](https://img.shields.io/npm/v/@healthcheck/web.svg?style=flat-square)]() [![Download](https://img.shields.io/npm/dm/@healthcheck/web)]()
+# @healthcheck/web [![npm version](https://img.shields.io/npm/v/@healthcheck/web.svg?style=flat-square)]() [![Download](https://img.shields.io/npm/dm/@healthcheck/web)]() [![repo size](https://img.shields.io/bundlejs/size/@healthcheck/web)]()
 
 ## Features
 
@@ -6,6 +6,7 @@
 - Capture and report custom interface errors, code exceptions, and resource loading errors.
 - Complete unit testing and end-to-end testing.
 - Monitors the web performance in real time and reports the performance indicators.
+- Rich hooks and configuration item support for high customization.
 - Support for native web and mainstream front-end frameworks (e.g. vue, react, etc.).
 
 ## Install
@@ -57,3 +58,7 @@ export default {
 ```
 
 ## Configuration
+
+
+## Screenshots
+

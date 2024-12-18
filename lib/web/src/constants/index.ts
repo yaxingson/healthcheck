@@ -1,4 +1,4 @@
 import type { HealthcheckOptions } from '../types'
 
-export const defaultHealthcheckOptions:HealthcheckOptions = {}
+export const defaultHealthcheckOptions = {}
 
