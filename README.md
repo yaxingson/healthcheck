@@ -6,9 +6,9 @@
 
 ## Packages
 
-[@healthcheck/web]('./lib/web')
+[@healthcheck/web](./lib/web)
 
-[@healthcheck/node]('./lib/node')
+[@healthcheck/node](./lib/node)
 
 ## License
 
