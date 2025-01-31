@@ -59,6 +59,12 @@ export default {
 
 ## Configuration
 
+```js
+{
+  
+}
+
+```
 
 ## Screenshots
 
