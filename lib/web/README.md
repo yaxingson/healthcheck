@@ -57,11 +57,23 @@ export default {
 
 ```
 
+CDN:
+
+```html
+<script src="" defer></script>
+
+```
+
 ## Configuration
 
 ```js
 {
-  
+  network:{},
+  errors:{},
+  resource:{},
+  pageview:{},
+  perf:{},
+  custom:{}
 }
 
 ```
